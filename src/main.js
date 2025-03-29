@@ -1,3 +1,9 @@
+import {
+  loadFromLocalStorage,
+  removeLocalStorage,
+  saveToLocalStorage,
+} from './js/local-storage-api';
+
 /*
   Створи список справ.
   На сторінці є два інпути які має вводиться назва і текст задачі.
@@ -14,3 +20,7 @@
       <p>Текст</p>
   </li>
 */
+saveToLocalStorage('theme', 'dark');
+// removeLocalStorage('theme');
+
+console.log(loadFromLocalStorage('theme'));
