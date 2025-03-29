@@ -1,2 +1,9 @@
-export const body = document.querySelector("body");
-export const btnToggle = document.querySelector("#themeToggle");
+import { checkedThemeOnLoad, toggleTheme } from "./theme-switcher";
+
+export function onDOMContentLoaded() {
+    checkedThemeOnLoad();
+}
+
+export function onBtnToggleClick() {
+    toggleTheme();
+}

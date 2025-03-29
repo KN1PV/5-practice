@@ -1,4 +1,6 @@
-import './js/theme-switcher.js'
+import { onBtnToggleClick, onDOMContentLoaded } from './js/handlers.js';
+import { refs } from './js/refs.js';
+
 /*
   Створи список справ.
   На сторінці є два інпути які має вводиться назва і текст задачі.
@@ -15,3 +17,8 @@ import './js/theme-switcher.js'
       <p>Текст</p>
   </li>
 */
+
+document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
+
+refs.btnToggle.addEventListener('click', onBtnToggleClick);
+

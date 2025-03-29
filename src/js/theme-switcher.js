@@ -1,23 +1,26 @@
-import { body, btnToggle } from "./handlers";
+import { THEME } from "./constants";
+import { loadFromLocalStorage, saveToLocalStorage } from "./local-storage-api";
+import { refs } from "./refs";
 
-document.addEventListener("DOMContentLoaded", () => {
-    const savedTheme = localStorage.getItem("theme-dark");
+
+export function checkedThemeOnLoad() {
+    const savedTheme = loadFromLocalStorage(THEME.KEY);
 
     if (savedTheme) {
-        body.classList.add(savedTheme);
+        refs.body.classList.add(savedTheme);
     } else {
-        body.classList.add("theme-light")
+        refs.body.classList.add(THEME.LIGHT)
     }
-});
+}
 
-btnToggle.addEventListener('click', () => {
-    const isDark = body.classList.contains("theme-dark");
+export function toggleTheme() {
+    const isDark = refs.body.classList.contains(THEME.DARK);
 
     if (isDark) {
-        body.classList.replace("theme-dark", "theme-light");
-        localStorage.setItem("theme", "theme-light");
+        refs.body.classList.replace(THEME.DARK, THEME.LIGHT);
+        saveToLocalStorage(THEME.KEY, THEME.LIGHT);
     } else {
-        body.classList.replace("theme-light", "theme-dark");
-        localStorage.setItem("theme", "theme-light")
+        refs.body.classList.replace(THEME.LIGHT, THEME.DARK);
+        saveToLocalStorage(THEME.KEY, THEME.DARK)
     }
-});
+}
