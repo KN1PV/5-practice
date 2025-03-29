@@ -1,8 +1,5 @@
-import {
-  loadFromLocalStorage,
-  removeLocalStorage,
-  saveToLocalStorage,
-} from './js/local-storage-api';
+import { onBtnToggleClick, onDOMContentLoaded } from './js/handlers.js';
+import { refs } from './js/refs.js';
 
 /*
   Створи список справ.
@@ -20,7 +17,8 @@ import {
       <p>Текст</p>
   </li>
 */
-saveToLocalStorage('theme', 'dark');
-// removeLocalStorage('theme');
 
-console.log(loadFromLocalStorage('theme'));
+document.addEventListener("DOMContentLoaded", onDOMContentLoaded);
+
+refs.btnToggle.addEventListener('click', onBtnToggleClick);
+
